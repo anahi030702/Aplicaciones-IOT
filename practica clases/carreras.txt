@@ -1,0 +1,2 @@
+{"nombre": "Tecnologias de la informacion", "clave": "TICS"}
+{"nombre": "Mecatronica", "clave": "MC"}
