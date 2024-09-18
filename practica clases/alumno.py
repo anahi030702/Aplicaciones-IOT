@@ -17,13 +17,17 @@ class Alumno(Arreglo):
             self.curp = curp
             self.matricula = matricula
 
+    def getDict(self):
+        data = {"nombre": f"{self.nombre}", "ap_paterno": f"{self.ap_paterno}", "ap_materno": f"{self.ap_materno}",
+                "curp": f"{self.curp}", "matricula": f"{self.matricula}"}
+        return data
+
     def __str__(self):
         if self._is_array:
             return super().__str__()
         #si no retorna los datos del objeto que se creo
         else:
-            data= { "nombre" :  f"{self.nombre}", "ap_paterno" : f"{self.ap_paterno}", "ap_materno" : f"{self.ap_materno}", "curp" : f"{self.curp}", "matricula" : f"{self.matricula}" }
-            return json.dumps(data)
+            return f"{self.nombre} {self.ap_paterno} {self.ap_materno} {self.matricula} {self.curp}"
 
 
 
@@ -40,7 +44,9 @@ if __name__ == "__main__":
     alumnos.agregar(alumno1)
     alumnos.agregar(alumno2)
     alumnos.agregar(alumno1)
-    print(alumnos)
+    print(alumnos.document("alumnos"))
+
+
     #
     # x = { 'name' : 'anahi'}
     # print(json.dumps(x))

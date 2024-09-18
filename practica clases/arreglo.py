@@ -7,6 +7,10 @@ class Arreglo:
 
     def __str__(self):
         return '\n'.join(str(arreglo) for arreglo in self.arreglos)
+        # return json.dumps(self.arreglos, indent=4)
+
+    def getArrayDict(self):
+        return [arreglo.getDict() for arreglo in self.arreglos]
 
     # Métodos para cuando funciona como arreglo
     # regresa el valor que se encuentra en el indice especificado
@@ -30,12 +34,11 @@ class Arreglo:
         self.arreglos.append(valor)
 
     def document(self, tipo):
-            f = open(f"{tipo}.txt", "w")
-            f.write('\n'.join(str(arreglo) for arreglo in self.arreglos))
-            f.close()
-            f = open(f"{tipo}.txt", "r")
-            return f.read()
+            json_object = json.dumps(self.getArrayDict(), indent=4)
 
+            with open(f"{tipo}.json", "w") as outfile:
+                outfile.write(json_object)
+            return "ok"
 
 # #otras maneras de usar los metodos magicos
 # #metodo __len__

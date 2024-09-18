@@ -19,12 +19,16 @@ class Carrera(Arreglo):
         if self._is_array:
             return super().__str__()
         else:
-            data = { "nombre" : f"{self.nombre}", "clave" : f"{self.clave}" }
+            data = f"{self.nombre} {self.clave}"
             return json.dumps(data)
 
     #Funcion que agrega un grupo a una carrera
     def agregar_grupo(self, grupo):
         self.grupos.agregar(grupo)
+
+    def getDict(self):
+        data = {"nombre": f"{self.nombre}", "clave": f"{self.clave}"}
+        return data
 
 
 if __name__ == '__main__':

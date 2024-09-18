@@ -1,2 +1,0 @@
-{"grado": "7mo", "seccion": "A"}
-{"grado": "2do", "seccion": "B"}

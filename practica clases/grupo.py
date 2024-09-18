@@ -19,12 +19,15 @@ class Grupo(Arreglo):
         if self._is_array:
             return super().__str__()
         else:
-            data = { "grado" : f"{self.grado}", "seccion" : f"{self.seccion}" }
-            return json.dumps(data)
+            return  f"{self.grado} {self.seccion}"
 
     #funcion que agrega un alumno a un grupo
     def agregar_alumnos(self, alumno):
         self.alumnos.agregar(alumno)
+
+    def getDict(self):
+        data = { "grado" : f"{self.grado}", "seccion" : f"{self.seccion}" }
+        return data
 
 
 if __name__ == "__main__":
