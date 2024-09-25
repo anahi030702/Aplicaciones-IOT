@@ -26,7 +26,7 @@ class Grupo(Arreglo):
         self.alumnos.agregar(alumno)
 
     def getDict(self):
-        data = { "grado" : f"{self.grado}", "seccion" : f"{self.seccion}" }
+        data = { "grado" : f"{self.grado}", "seccion" : f"{self.seccion}", "alumnos" : f"{self.alumnos.getArrayDict()}" }
         return data
 
 
@@ -40,6 +40,7 @@ if __name__ == "__main__":
     grupo2.agregar_alumnos(alumno1)
     grupo1 = Grupo("A", "7mo")
     grupo1.agregar_alumnos(alumno2)
+    grupo1.agregar_alumnos(alumno1)
 
     #creando el arreglo de grupos y agregandole grupos
     grupos = Grupo()

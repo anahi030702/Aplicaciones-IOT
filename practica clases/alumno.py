@@ -30,6 +30,27 @@ class Alumno(Arreglo):
             return f"{self.nombre} {self.ap_paterno} {self.ap_materno} {self.matricula} {self.curp}"
 
 
+    def leer_doc(self):
+        with open('alumnos.json', 'r') as json_File:
+            test = json.load(json_File)
+
+        alumnos = self.iterar_archivo(test)
+        return alumnos
+
+
+    def iterar_archivo(self, data):
+        alumnos = Alumno()
+
+        for doc in data:
+            values = doc.values()
+            lists = list(values)
+            alumno = Alumno(lists[0], lists[1], lists[2], lists[3], lists[4])
+            alumnos.agregar(alumno)
+
+        return alumnos
+
+
+
 
 
 
@@ -44,7 +65,12 @@ if __name__ == "__main__":
     alumnos.agregar(alumno1)
     alumnos.agregar(alumno2)
     alumnos.agregar(alumno1)
-    print(alumnos.document("alumnos"))
+    alumnos.agregar(alumno2)
+
+    # print(alumnos)
+    # alumnos.document("alumnos")
+    #
+    print(alumnos.leer_doc())
 
 
     #

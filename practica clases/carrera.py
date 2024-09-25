@@ -27,7 +27,7 @@ class Carrera(Arreglo):
         self.grupos.agregar(grupo)
 
     def getDict(self):
-        data = {"nombre": f"{self.nombre}", "clave": f"{self.clave}"}
+        data = {"nombre": f"{self.nombre}", "clave": f"{self.clave}", "grupos": f"{self.grupos.getArrayDict()}"}
         return data
 
 

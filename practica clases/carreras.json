@@ -1,10 +1,12 @@
 [
     {
         "nombre": "Tecnologias de la informacion",
-        "clave": "TICS"
+        "clave": "TICS",
+        "grupos": "[{'grado': '7mo', 'seccion': 'A', 'alumnos': \"[{'nombre': 'Anahi', 'ap_paterno': 'Alvarez', 'ap_materno': 'Holguin', 'curp': 'AAHA020703MCLLLNA', 'matricula': '21170158'}, {'nombre': 'Benito', 'ap_paterno': 'Rubio', 'ap_materno': 'Franco', 'curp': 'BRFB050930MCLLLN04', 'matricula': '21170160'}]\"}]"
     },
     {
         "nombre": "Mecatronica",
-        "clave": "MC"
+        "clave": "MC",
+        "grupos": "[{'grado': '2do', 'seccion': 'B', 'alumnos': \"[{'nombre': 'Anahi', 'ap_paterno': 'Alvarez', 'ap_materno': 'Holguin', 'curp': 'AAHA020703MCLLLNA', 'matricula': '21170158'}, {'nombre': 'Benito', 'ap_paterno': 'Rubio', 'ap_materno': 'Franco', 'curp': 'BRFB050930MCLLLN04', 'matricula': '21170160'}]\"}]"
     }
 ]

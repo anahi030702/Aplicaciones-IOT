@@ -19,5 +19,12 @@
         "ap_materno": "Holguin",
         "curp": "AAHA020703MCLLLNA",
         "matricula": "21170158"
+    },
+    {
+        "nombre": "Benito",
+        "ap_paterno": "Rubio",
+        "ap_materno": "Franco",
+        "curp": "BRFB050930MCLLLN04",
+        "matricula": "21170160"
     }
 ]
