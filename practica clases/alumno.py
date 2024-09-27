@@ -7,7 +7,6 @@ class Alumno(Arreglo):
         if all(arg is None for arg in [nombre, ap_paterno, ap_materno, curp, matricula]):
             self._is_array = True
             super().__init__()
-
         else:
             # Si no actua como objeto
             self._is_array = False
@@ -18,9 +17,13 @@ class Alumno(Arreglo):
             self.matricula = matricula
 
     def getDict(self):
-        data = {"nombre": f"{self.nombre}", "ap_paterno": f"{self.ap_paterno}", "ap_materno": f"{self.ap_materno}",
-                "curp": f"{self.curp}", "matricula": f"{self.matricula}"}
-        return data
+        if self._is_array:
+            return [ arreglo.getDict() for arreglo in self.arreglos ]
+        else:
+            data = {"nombre": self.nombre, "ap_paterno": self.ap_paterno, "ap_materno": self.ap_materno,
+                    "curp": self.curp, "matricula": self.matricula }
+            return data
+
 
     def __str__(self):
         if self._is_array:
@@ -39,14 +42,14 @@ class Alumno(Arreglo):
 
 
     def iterar_archivo(self, data):
-        alumnos = Alumno()
+        alumnos = []
 
         for doc in data:
             values = doc.values()
             lists = list(values)
             alumno = Alumno(lists[0], lists[1], lists[2], lists[3], lists[4])
-            alumnos.agregar(alumno)
-
+            alumnos.append(alumno)
+        self.arreglos = alumnos
         return alumnos
 
 
@@ -59,6 +62,8 @@ if __name__ == "__main__":
     # #Creando alumnos
     alumno1 = Alumno("Anahi", "Alvarez", "Holguin", "AAHA020703MCLLLNA", "21170158")
     alumno2 = Alumno("Benito", "Rubio", "Franco", "BRFB050930MCLLLN04", "21170160")
+    print(alumno1.getDict())
+
     #
     # print(alumno1)
     alumnos = Alumno()
@@ -66,11 +71,13 @@ if __name__ == "__main__":
     alumnos.agregar(alumno2)
     alumnos.agregar(alumno1)
     alumnos.agregar(alumno2)
+    print(alumnos.getDict())
+
 
     # print(alumnos)
-    # alumnos.document("alumnos")
+    alumnos.document("alumnos", alumnos.getDict())
     #
-    print(alumnos.leer_doc())
+    # print(alumnos.leer_doc())
 
 
     #

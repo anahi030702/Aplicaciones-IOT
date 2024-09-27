@@ -18,7 +18,8 @@ alumnos = Alumno()
 alumno1 = Alumno("ANAHI", "ALVAREZ", "HOLGUIN", "AAAAAAAAAA", "21170158")
 alumnos.agregar(alumno1)
 data = alumnos.getArrayDict()
-print(json.dumps(data))
+
+print(data)
 
 
 

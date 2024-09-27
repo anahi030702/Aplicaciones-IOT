@@ -27,8 +27,12 @@ class Carrera(Arreglo):
         self.grupos.agregar(grupo)
 
     def getDict(self):
-        data = {"nombre": f"{self.nombre}", "clave": f"{self.clave}", "grupos": f"{self.grupos.getArrayDict()}"}
-        return data
+        if self._is_array:
+            return [arreglo.getDict() for arreglo in self.arreglos]
+        else:
+            data = {"nombre": self.nombre, "clave": self.clave, "grupos": self.grupos.getDict() }
+            return data
+
 
 
 if __name__ == '__main__':
@@ -70,4 +74,4 @@ if __name__ == '__main__':
     carreras = Carrera()
     carreras.agregar(carrera1)
     carreras.agregar(carrera2)
-    print(carreras.document("carreras"))
+    print(carreras.document("carreras", carreras.getDict()))

@@ -2,11 +2,34 @@
     {
         "grado": "7mo",
         "seccion": "A",
-        "alumnos": "[{'nombre': 'Benito', 'ap_paterno': 'Rubio', 'ap_materno': 'Franco', 'curp': 'BRFB050930MCLLLN04', 'matricula': '21170160'}, {'nombre': 'Anahi', 'ap_paterno': 'Alvarez', 'ap_materno': 'Holguin', 'curp': 'AAHA020703MCLLLNA', 'matricula': '21170158'}]"
+        "alumnos": [
+            {
+                "nombre": "Benito",
+                "ap_paterno": "Rubio",
+                "ap_materno": "Franco",
+                "curp": "BRFB050930MCLLLN04",
+                "matricula": "21170160"
+            },
+            {
+                "nombre": "Anahi",
+                "ap_paterno": "Alvarez",
+                "ap_materno": "Holguin",
+                "curp": "AAHA020703MCLLLNA",
+                "matricula": "21170158"
+            }
+        ]
     },
     {
         "grado": "2do",
         "seccion": "B",
-        "alumnos": "[{'nombre': 'Anahi', 'ap_paterno': 'Alvarez', 'ap_materno': 'Holguin', 'curp': 'AAHA020703MCLLLNA', 'matricula': '21170158'}]"
+        "alumnos": [
+            {
+                "nombre": "Anahi",
+                "ap_paterno": "Alvarez",
+                "ap_materno": "Holguin",
+                "curp": "AAHA020703MCLLLNA",
+                "matricula": "21170158"
+            }
+        ]
     }
 ]

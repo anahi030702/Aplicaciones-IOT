@@ -9,9 +9,6 @@ class Arreglo:
         return '\n'.join(str(arreglo) for arreglo in self.arreglos)
         # return json.dumps(self.arreglos, indent=4)
 
-    def getArrayDict(self):
-        return [arreglo.getDict() for arreglo in self.arreglos]
-
     # Métodos para cuando funciona como arreglo
     # regresa el valor que se encuentra en el indice especificado
     def __getitem__(self, index):
@@ -33,8 +30,8 @@ class Arreglo:
     def agregar(self, valor):
         self.arreglos.append(valor)
 
-    def document(self, tipo):
-            json_object = json.dumps(self.getArrayDict(), indent=4)
+    def document(self, tipo, data):
+            json_object = json.dumps(data, indent=4)
 
             with open(f"{tipo}.json", "w") as outfile:
                 outfile.write(json_object)
