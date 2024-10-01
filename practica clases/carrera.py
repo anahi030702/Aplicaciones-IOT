@@ -56,22 +56,11 @@ if __name__ == '__main__':
     carrera2 = Carrera("Mecatronica", "MC")
     carrera2.agregar_grupo(grupo2)
 
-    #Mostrando las carreras con los grupos que tiene y cada grupo con los alumnos que tiene
-    for grupo in carrera1.grupos:
-        print(carrera1.nombre)
-        print(grupo.grado + " " + grupo.seccion)
-        for alumno in grupo.alumnos:
-            print(alumno)
-
-
-    for grupo in carrera2.grupos:
-        print(carrera2.nombre)
-        print(grupo.grado + " " + grupo.seccion)
-        for alumno in grupo.alumnos:
-            print(alumno)
 
     #creando arreglo de carreras y agregandole carreras
     carreras = Carrera()
     carreras.agregar(carrera1)
     carreras.agregar(carrera2)
-    print(carreras.document("carreras", carreras.getDict()))
+
+    #creando el documento carreras.json y agregandole lo que trae el arreglo carreras
+    carreras.document("carreras", carreras.getDict())

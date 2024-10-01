@@ -42,24 +42,17 @@ if __name__ == "__main__":
     # #Creando grupos y agregando alumnos a los grupos
     grupo2 = Grupo("B", "2do")
     grupo2.agregar_alumnos(alumno1)
+
     grupo1 = Grupo("A", "7mo")
     grupo1.agregar_alumnos(alumno2)
     grupo1.agregar_alumnos(alumno1)
 
-    print(grupo1.getDict())
 
     #creando el arreglo de grupos y agregandole grupos
     grupos = Grupo()
     grupos.agregar(grupo1)
     grupos.agregar(grupo2)
-    print(grupos.document("grupos", grupos.getDict()))
-    # print(grupos.getDict())
 
-    #Mostrando los grupos con sus alumnos
-    # print(grupo1.grado + " " + grupo1.seccion)
-    # for alumno in grupo1.alumnos:
-    #     print(alumno)
-    #
-    # print(grupo2.grado + " " + grupo2.seccion)
-    # for alumno in grupo2.alumnos:
-    #     print(alumno)
+    #creando el archivo grupos.json con lo que tiene el array grupos
+    grupos.document("grupos", grupos.getDict())
+

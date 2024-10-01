@@ -37,6 +37,8 @@ class Arreglo:
                 outfile.write(json_object)
             return "ok"
 
+
+
 # #otras maneras de usar los metodos magicos
 # #metodo __len__
 # len(arreglo)

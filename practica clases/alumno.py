@@ -35,9 +35,9 @@ class Alumno(Arreglo):
 
     def leer_doc(self):
         with open('alumnos.json', 'r') as json_File:
-            test = json.load(json_File)
+            data = json.load(json_File)
 
-        alumnos = self.iterar_archivo(test)
+        alumnos = self.iterar_archivo(data)
         return alumnos
 
 
@@ -45,9 +45,7 @@ class Alumno(Arreglo):
         alumnos = []
 
         for doc in data:
-            values = doc.values()
-            lists = list(values)
-            alumno = Alumno(lists[0], lists[1], lists[2], lists[3], lists[4])
+            alumno = Alumno(doc["nombre"], doc["ap_paterno"], doc["ap_materno"], doc["curp"], doc["matricula"])
             alumnos.append(alumno)
         self.arreglos = alumnos
         return alumnos
@@ -62,27 +60,23 @@ if __name__ == "__main__":
     # #Creando alumnos
     alumno1 = Alumno("Anahi", "Alvarez", "Holguin", "AAHA020703MCLLLNA", "21170158")
     alumno2 = Alumno("Benito", "Rubio", "Franco", "BRFB050930MCLLLN04", "21170160")
-    print(alumno1.getDict())
 
-    #
-    # print(alumno1)
+    #creando arreglo de alumnos
     alumnos = Alumno()
     alumnos.agregar(alumno1)
     alumnos.agregar(alumno2)
     alumnos.agregar(alumno1)
     alumnos.agregar(alumno2)
-    print(alumnos.getDict())
 
-
-    # print(alumnos)
+    #creando documento de alumnos con arreglo alumnos
     alumnos.document("alumnos", alumnos.getDict())
-    #
-    # print(alumnos.leer_doc())
 
+    #extrayendo la informacion del archivo alumno y convirtiendolo a objetos ALUMNO
+    alumnos_creados = alumnos.leer_doc()
 
-    #
-    # x = { 'name' : 'anahi'}
-    # print(json.dumps(x))
+    #mostrando los objetos alumno creados despues de extraer la informacion del documento
+    for alumno in alumnos_creados:
+        print(alumno)
 
 
 
