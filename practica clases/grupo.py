@@ -1,4 +1,5 @@
 import json
+from textwrap import indent
 
 from alumno import Alumno
 from arreglo import Arreglo
@@ -32,27 +33,31 @@ class Grupo(Arreglo):
             data = {"grado": self.grado, "seccion": self.seccion, "alumnos": self.alumnos.getDict() }
             return data
 
+    def leer_doc(self):
+        with open('grupos.json', 'r') as json_File:
+            data = json.load(json_File)
+
+        self.iterar_archivo(data)
+
+    def iterar_archivo(self, data):
+        grupos = []
+        alumnos=Alumno()
+        for doc in data:
+            grupo = Grupo(doc["seccion"], doc["grado"])
+            alumnos.iterar_archivo(doc["alumnos"])
+            grupo.alumnos=alumnos
+            grupos.append(grupo)
+
+        self.arreglos = grupos
+
 
 
 if __name__ == "__main__":
-    #Creando alumnos
-    alumno1 = Alumno("Anahi", "Alvarez", "Holguin", "AAHA020703MCLLLNA", "21170158")
-    alumno2 = Alumno("Benito", "Rubio", "Franco", "BRFB050930MCLLLN04", "21170160")
 
-    # #Creando grupos y agregando alumnos a los grupos
-    grupo2 = Grupo("B", "2do")
-    grupo2.agregar_alumnos(alumno1)
-
-    grupo1 = Grupo("A", "7mo")
-    grupo1.agregar_alumnos(alumno2)
-    grupo1.agregar_alumnos(alumno1)
-
-
-    #creando el arreglo de grupos y agregandole grupos
     grupos = Grupo()
-    grupos.agregar(grupo1)
-    grupos.agregar(grupo2)
+    grupos.leer_doc()
 
-    #creando el archivo grupos.json con lo que tiene el array grupos
-    grupos.document("grupos", grupos.getDict())
+    print(json.dumps(grupos.getDict(), indent=4))
+
+
 

@@ -33,34 +33,27 @@ class Carrera(Arreglo):
             data = {"nombre": self.nombre, "clave": self.clave, "grupos": self.grupos.getDict() }
             return data
 
+    def leer_doc(self):
+        with open('carreras.json', 'r') as json_File:
+            data = json.load(json_File)
+
+        carreras = self.iterar_archivo(data)
+
+
+    def iterar_archivo(self, data):
+        carreras = []
+        grupos= Grupo()
+        for doc in data:
+            carrera = Carrera(doc["nombre"], doc["clave"])
+            grupos.iterar_archivo(doc["grupos"])
+            carrera.grupos=grupos
+            carreras.append(carrera)
+
+        self.arreglos = carreras
 
 
 if __name__ == '__main__':
-    #Creando alumnos
-    alumno1 = Alumno("Anahi", "Alvarez", "Holguin", "AAHA020703MCLLLNA", "21170158")
-    alumno2 = Alumno("Benito", "Rubio", "Franco", "BRFB050930MCLLLN04", "21170160")
-    #
-    #Creando grupos y agregandoles alumnos
-    grupo1 = Grupo("A", "7mo")
-    grupo1.agregar_alumnos(alumno1)
-    grupo1.agregar_alumnos(alumno2)
-
-    grupo2 = Grupo("B", "2do")
-    grupo2.agregar_alumnos(alumno1)
-    grupo2.agregar_alumnos(alumno2)
-
-    #Creando carreras y agregandole grupos con alumnos
-    carrera1 = Carrera("Tecnologias de la informacion", "TICS")
-    carrera1.agregar_grupo(grupo1)
-
-    carrera2 = Carrera("Mecatronica", "MC")
-    carrera2.agregar_grupo(grupo2)
-
-
-    #creando arreglo de carreras y agregandole carreras
     carreras = Carrera()
-    carreras.agregar(carrera1)
-    carreras.agregar(carrera2)
 
-    #creando el documento carreras.json y agregandole lo que trae el arreglo carreras
-    carreras.document("carreras", carreras.getDict())
+    carreras.leer_doc()
+    print(json.dumps(carreras.getDict(), indent=4))
