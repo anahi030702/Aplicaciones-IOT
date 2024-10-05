@@ -1,4 +1,5 @@
 from alumno import Alumno
+import json
 from arreglo import Arreglo
 
 
@@ -21,8 +22,13 @@ class interfaz_alumnos():
             self.ver_lista()
         elif res == "4":
             self.eliminar_alumno()
+        elif res == "3":
+            self.editar_alumno()
+        elif res == "5":
+            print("¡Hasta luego!")
         else:
-            print("ok")
+            print("Opcion invalida. Eliga una opcion valida en el menú\n")
+            self.menu_inicial()
 
     def crear_alumno(self):
         nombre = input("Escribe el nombre del alumno: ")
@@ -41,8 +47,7 @@ class interfaz_alumnos():
         if res == "1":
             alumno = Alumno(nombre, apellido_paterno, apellido_materno, curp, matricula)
             self.alumnos.agregar(alumno)
-            #tengo problema para mandar a llamar la funcion document de mi clase Alumno por que me dice
-            # que la funcion getarray no existe
+            self.alumnos.document("alumnos", self.alumnos.getDict())
             print(alumno)
             print("¡Alumno creado exitosamente!")
             self.opciones_finalizar("Crear")
@@ -80,7 +85,7 @@ class interfaz_alumnos():
         if res == "1":
             self.menu_inicial()
         elif res == "2":
-            print("Hasta luego!")
+            print("¡Hasta luego!")
         else:
             print("Opcion invalida")
             self.exit()
@@ -90,8 +95,38 @@ class interfaz_alumnos():
             print(indice, alumno)
         num = input("Escribe el numero del registro que desea eliminar: ")
         del self.alumnos[int(num)]
-        print("Almno eliminado exitosamente!")
+        self.alumnos.document("alumnos", self.alumnos.getDict())
+        print("Alumno eliminado exitosamente!")
         self.opciones_finalizar("Eliminar")
+
+    def editar_alumno(self):
+        for indice, alumno in enumerate(self.alumnos):
+            print(indice, alumno)
+        num = input("Escribe el numero del registro que deseas modificar: ")
+        self.modificar_valor(num)
+
+
+
+    def modificar_valor(self, num):
+        dic = self.alumnos[int(num)].getDict()
+        print(json.dumps(dic, indent=4))
+        clave = input(
+            "De los nombres de clave mostrados arriba, escriba el que desea modificar (por ejemplo: nombre): ")
+        new_valor = input("Escriba el nuevo valor para " + clave + ": ")
+        dic[clave] = new_valor
+        self.alumnos[int(num)] = Alumno(dic["nombre"], dic["ap_paterno"], dic["ap_materno"], dic["curp"], dic["matricula"])
+        self.alumnos.document("alumnos", self.alumnos.getDict())
+        print(self.alumnos)
+        print("Valor modificada exitosamente!")
+        res = input("¿Deseas modificar otro valor del mismo registro? \n1.Si \n2.No\n")
+        if res == "1":
+            self.modificar_valor(num)
+        elif res == "2":
+            self.opciones_finalizar("Modificar")
+        else:
+            print("Opcion invalida")
+
+
 
 
 
