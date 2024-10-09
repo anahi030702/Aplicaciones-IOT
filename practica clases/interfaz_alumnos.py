@@ -3,10 +3,15 @@ import json
 from arreglo import Arreglo
 
 
-class interfaz_alumnos():
-    def __init__(self):
-        self.alumnos = Alumno()
-        self.alumnos.leer_doc()
+class InterfazAlumno():
+    def __init__(self, data=None):
+        if data is None:
+            self.externo = False
+            self.alumnos = Alumno()
+            self.alumnos.leer_doc()
+        else:
+            self.externo = True
+            self.alumnos = data
 
     def menu_inicial(self):
         print("1. Ver lista de alumnos")
@@ -47,7 +52,10 @@ class interfaz_alumnos():
         if res == "1":
             alumno = Alumno(nombre, apellido_paterno, apellido_materno, curp, matricula)
             self.alumnos.agregar(alumno)
-            self.alumnos.document("alumnos", self.alumnos.getDict())
+            if not self.externo:
+                self.alumnos.document("alumnos", self.alumnos.getDict())
+            else:
+                return self.alumnos
             print(alumno)
             print("¡Alumno creado exitosamente!")
             self.opciones_finalizar("Crear")
@@ -63,7 +71,9 @@ class interfaz_alumnos():
             if accion == "Crear":
                 self.crear_alumno()
             elif accion == "Modificar":
-                self.crear_alumno()
+                self.editar_alumno()
+            elif accion == "Eliminar":
+                self.eliminar_alumno()
             else:
                 self.crear_alumno()
         else:

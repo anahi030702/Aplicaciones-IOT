@@ -1,34 +1,47 @@
 [
     {
-        "grado": "7mo",
+        "grado": "7\u00b0",
         "seccion": "A",
         "alumnos": [
             {
-                "nombre": "Benito",
-                "ap_paterno": "Rubio",
-                "ap_materno": "Franco",
-                "curp": "BRFB050930MCLLLN04",
-                "matricula": "21170160"
+                "nombre": "carlo",
+                "ap_paterno": "gutierrez",
+                "ap_materno": "ramirez",
+                "curp": "AHAGHG55",
+                "matricula": 2115896
             },
             {
-                "nombre": "Anahi",
-                "ap_paterno": "Alvarez",
-                "ap_materno": "Holguin",
-                "curp": "AAHA020703MCLLLNA",
-                "matricula": "21170158"
+                "nombre": "saul",
+                "ap_paterno": "alvarez",
+                "ap_materno": "holguin",
+                "curp": "AHAH455",
+                "matricula": 2115896
             }
         ]
     },
     {
-        "grado": "2do",
+        "grado": "2\u00b0",
         "seccion": "B",
         "alumnos": [
             {
-                "nombre": "Anahi",
-                "ap_paterno": "Alvarez",
-                "ap_materno": "Holguin",
-                "curp": "AAHA020703MCLLLNA",
-                "matricula": "21170158"
+                "nombre": "david",
+                "ap_paterno": "benitez",
+                "ap_materno": "campos",
+                "curp": "DBCOPH512",
+                "matricula": 5282699
+            }
+        ]
+    },
+    {
+        "grado": "2",
+        "seccion": "b",
+        "alumnos": [
+            {
+                "nombre": "hjhhh",
+                "ap_paterno": "fgsdg",
+                "ap_materno": "",
+                "curp": "sdsedf",
+                "matricula": "5165"
             }
         ]
     }

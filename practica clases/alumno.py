@@ -54,6 +54,7 @@ class Alumno(Arreglo):
 
 
 
+
 if __name__ == "__main__":
 
     alumnos = Alumno()

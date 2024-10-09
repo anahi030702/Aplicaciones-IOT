@@ -19,5 +19,19 @@
         "ap_materno": "perez",
         "curp": "ahahhahayah459635",
         "matricula": "2118596"
+    },
+    {
+        "nombre": "juanito",
+        "ap_paterno": "casta\u00f1eda",
+        "ap_materno": "hernandez",
+        "curp": "AAAHAH81525",
+        "matricula": "265456"
+    },
+    {
+        "nombre": "lilia",
+        "ap_paterno": "vazaquez",
+        "ap_materno": "martinez",
+        "curp": "HDSHHH2155",
+        "matricula": "21895"
     }
 ]

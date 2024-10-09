@@ -20,7 +20,7 @@ class Grupo(Arreglo):
         if self._is_array:
             return super().__str__()
         else:
-            return  f"{self.grado} {self.seccion}"
+            return  f"{self.grado} {self.seccion} \nNo. alumnos: {len(self.alumnos)}"
 
     #funcion que agrega un alumno a un grupo
     def agregar_alumnos(self, alumno):
@@ -41,8 +41,8 @@ class Grupo(Arreglo):
 
     def iterar_archivo(self, data):
         grupos = []
-        alumnos=Alumno()
         for doc in data:
+            alumnos = Alumno()
             grupo = Grupo(doc["seccion"], doc["grado"])
             alumnos.iterar_archivo(doc["alumnos"])
             grupo.alumnos=alumnos
@@ -57,7 +57,9 @@ if __name__ == "__main__":
     grupos = Grupo()
     grupos.leer_doc()
 
+
     print(json.dumps(grupos.getDict(), indent=4))
+
 
 
 
