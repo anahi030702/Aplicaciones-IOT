@@ -19,8 +19,8 @@ class Carrera(Arreglo):
         if self._is_array:
             return super().__str__()
         else:
-            data = f"{self.nombre} {self.clave}"
-            return json.dumps(data)
+            return f"{self.nombre} {self.clave} \nNo. grupos: {len(self.grupos)}"
+
 
     #Funcion que agrega un grupo a una carrera
     def agregar_grupo(self, grupo):
@@ -42,8 +42,8 @@ class Carrera(Arreglo):
 
     def iterar_archivo(self, data):
         carreras = []
-        grupos= Grupo()
         for doc in data:
+            grupos = Grupo()
             carrera = Carrera(doc["nombre"], doc["clave"])
             grupos.iterar_archivo(doc["grupos"])
             carrera.grupos=grupos

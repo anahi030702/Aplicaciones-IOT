@@ -52,13 +52,13 @@ class InterfazAlumno():
         if res == "1":
             alumno = Alumno(nombre, apellido_paterno, apellido_materno, curp, matricula)
             self.alumnos.agregar(alumno)
+            print(alumno)
+            print("¡Alumno creado exitosamente!")
+            self.opciones_finalizar("Crear")
             if not self.externo:
                 self.alumnos.document("alumnos", self.alumnos.getDict())
             else:
                 return self.alumnos
-            print(alumno)
-            print("¡Alumno creado exitosamente!")
-            self.opciones_finalizar("Crear")
         else:
             self.opciones_finalizar("Crear")
 
@@ -105,9 +105,12 @@ class InterfazAlumno():
             print(indice, alumno)
         num = input("Escribe el numero del registro que desea eliminar: ")
         del self.alumnos[int(num)]
-        self.alumnos.document("alumnos", self.alumnos.getDict())
         print("Alumno eliminado exitosamente!")
         self.opciones_finalizar("Eliminar")
+        if not self.externo:
+            self.alumnos.document("alumnos", self.alumnos.getDict())
+        else:
+            return self.alumnos
 
     def editar_alumno(self):
         for indice, alumno in enumerate(self.alumnos):
@@ -125,7 +128,6 @@ class InterfazAlumno():
         new_valor = input("Escriba el nuevo valor para " + clave + ": ")
         dic[clave] = new_valor
         self.alumnos[int(num)] = Alumno(dic["nombre"], dic["ap_paterno"], dic["ap_materno"], dic["curp"], dic["matricula"])
-        self.alumnos.document("alumnos", self.alumnos.getDict())
         print(self.alumnos)
         print("Valor modificada exitosamente!")
         res = input("¿Deseas modificar otro valor del mismo registro? \n1.Si \n2.No\n")
@@ -133,6 +135,10 @@ class InterfazAlumno():
             self.modificar_valor(num)
         elif res == "2":
             self.opciones_finalizar("Modificar")
+            if not self.externo:
+                self.alumnos.document("alumnos", self.alumnos.getDict())
+            else:
+                return self.alumnos
         else:
             print("Opcion invalida")
 
@@ -142,4 +148,4 @@ class InterfazAlumno():
 
 
 if __name__ == "__main__":
-    interfaz_alumnos().menu_inicial()
+    InterfazAlumno().menu_inicial()

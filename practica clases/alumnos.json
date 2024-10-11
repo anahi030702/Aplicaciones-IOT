@@ -1,37 +1,9 @@
 [
     {
-        "nombre": "Anahi",
-        "ap_paterno": "Alvarez",
-        "ap_materno": "Holguin",
-        "curp": "AAHA020703MCLLLNA",
-        "matricula": "21170158"
-    },
-    {
-        "nombre": "Benito",
-        "ap_paterno": "Rubio",
-        "ap_materno": "Franco",
-        "curp": "BRFB050930MCLLLN04",
-        "matricula": "21170160"
-    },
-    {
-        "nombre": "jose",
-        "ap_paterno": "alvarez",
-        "ap_materno": "perez",
-        "curp": "ahahhahayah459635",
-        "matricula": "2118596"
-    },
-    {
-        "nombre": "juanito",
-        "ap_paterno": "casta\u00f1eda",
-        "ap_materno": "hernandez",
-        "curp": "AAAHAH81525",
-        "matricula": "265456"
-    },
-    {
-        "nombre": "lilia",
-        "ap_paterno": "vazaquez",
-        "ap_materno": "martinez",
-        "curp": "HDSHHH2155",
-        "matricula": "21895"
+        "nombre": "Leonardo",
+        "ap_paterno": "Mendez",
+        "ap_materno": "Lopez",
+        "curp": "JASVDJ15154",
+        "matricula": "1561521"
     }
 ]

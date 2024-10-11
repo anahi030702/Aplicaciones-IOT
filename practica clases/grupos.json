@@ -29,19 +29,13 @@
                 "ap_materno": "campos",
                 "curp": "DBCOPH512",
                 "matricula": 5282699
-            }
-        ]
-    },
-    {
-        "grado": "2",
-        "seccion": "b",
-        "alumnos": [
+            },
             {
-                "nombre": "hjhhh",
-                "ap_paterno": "fgsdg",
-                "ap_materno": "",
-                "curp": "sdsedf",
-                "matricula": "5165"
+                "nombre": "melany",
+                "ap_paterno": "alvarez",
+                "ap_materno": "salazar",
+                "curp": "JHVASGHAV1515",
+                "matricula": "45152"
             }
         ]
     }

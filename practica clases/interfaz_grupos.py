@@ -8,9 +8,15 @@ from interfaz_alumnos import InterfazAlumno
 
 
 class interfaz_grupos():
-    def __init__(self):
-        self.grupos = Grupo()
-        self.grupos.leer_doc()
+    def __init__(self, data=None):
+        if data is None:
+            self.externo = False
+            self.grupos = Grupo()
+            self.grupos.leer_doc()
+        else:
+            self.externo = True
+            self.grupos = data
+
 
     def menu_inicial(self):
         print("1. Ver lista de grupos")
@@ -26,6 +32,8 @@ class interfaz_grupos():
             self.crear_grupo()
         elif res == "4":
             self.eliminar_grupo()
+        elif res == "3":
+            self.editar_grupo()
 
     def ver_lista(self):
         if not self.grupos:
@@ -55,12 +63,20 @@ class interfaz_grupos():
                 grupo.alumnos=ia.alumnos
 
                 self.grupos.agregar(grupo)
-                self.grupos.document("grupos", self.grupos.getDict())
+                if not self.externo:
+                    self.grupos.document("grupos", self.grupos.getDict())
+                else:
+                    return self.grupos
+                # self.grupos.document("grupos", self.grupos.getDict())
 
             elif res2 == "2":
                 self.opciones_finalizar("Crear")
                 self.grupos.agregar(grupo)
-                self.grupos.document("grupos", self.grupos.getDict())
+                if not self.externo:
+                    self.grupos.document("grupos", self.grupos.getDict())
+                else:
+                    return self.grupos
+                # self.grupos.document("grupos", self.grupos.getDict())
             else:
                 print("Opcion invalida")
         else:
@@ -72,9 +88,47 @@ class interfaz_grupos():
             print(indice, grupo)
         num = input("Escribe el numero del registro que desea eliminar: ")
         del self.grupos[int(num)]
-        self.grupos.document("grupos", self.grupos.getDict())
+        # self.grupos.document("grupos", self.grupos.getDict())
         print("Grupo eliminado exitosamente!")
         self.opciones_finalizar("Eliminar")
+        if not self.externo:
+            self.grupos.document("grupos", self.grupos.getDict())
+        else:
+            return self.grupos
+
+    def editar_grupo(self):
+        for indice, grupo in enumerate(self.grupos):
+            print(indice, grupo)
+        num = input("Escribe el numero del registro que deseas modificar: ")
+        self.modificar_valor(num)
+
+    def modificar_valor(self, num):
+        dic = self.grupos[int(num)].getDict()
+        print(json.dumps(dic, indent=4))
+        clave = input(
+            "De los nombres de clave mostrados arriba, escriba el que desea modificar (por ejemplo: nombre): ")
+        if clave == "alumnos":
+            ia = InterfazAlumno(self.grupos[int(num)].alumnos)
+            ia.menu_inicial()
+            self.grupos[int(num)].alumnos = ia.alumnos
+        else:
+            new_valor = input("Escriba el nuevo valor para " + clave + ": ")
+            dic[clave] = new_valor
+            self.grupos[int(num)] = Grupo(dic["seccion"], dic["grado"])
+            print(self.grupos)
+            print("Valor modificada exitosamente!")
+        # self.grupos.document("grupos", self.grupos.getDict())
+        res = input("¿Deseas modificar otro valor del mismo registro? \n1.Si \n2.No\n")
+        if res == "1":
+            self.modificar_valor(num)
+        elif res == "2":
+            self.opciones_finalizar("Modificar")
+            if not self.externo:
+                self.grupos.document("grupos", self.grupos.getDict())
+            else:
+                return self.grupos
+        else:
+            print("Opcion invalida")
 
     def opciones_finalizar(self, accion):
         res = input("Eliga la opcion deseada: \n1." + accion + " otro grupo \n2.Regresar al menu inicial \n")

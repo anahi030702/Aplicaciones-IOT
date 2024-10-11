@@ -1,53 +1,54 @@
 [
     {
-        "nombre": "Tecnologias de la informacion",
+        "nombre": "TICS",
         "clave": "TICS",
         "grupos": [
             {
-                "grado": "7mo",
+                "grado": "1\u00b0",
                 "seccion": "A",
                 "alumnos": [
                     {
-                        "nombre": "Anahi",
-                        "ap_paterno": "Alvarez",
-                        "ap_materno": "Holguin",
-                        "curp": "AAHA020703MCLLLNA",
-                        "matricula": "21170158"
-                    },
-                    {
-                        "nombre": "Benito",
-                        "ap_paterno": "Rubio",
-                        "ap_materno": "Franco",
-                        "curp": "BRFB050930MCLLLN04",
-                        "matricula": "21170160"
+                        "nombre": "anahi",
+                        "ap_paterno": "alvarez",
+                        "ap_materno": "holguin",
+                        "curp": "AHAVSGAH15615",
+                        "matricula": "1511352"
                     }
                 ]
+            },
+            {
+                "grado": "2",
+                "seccion": "A",
+                "alumnos": []
+            },
+            {
+                "grado": "5",
+                "seccion": "A",
+                "alumnos": []
             }
         ]
     },
     {
-        "nombre": "Mecatronica",
+        "nombre": "MECATRONICA",
         "clave": "MC",
         "grupos": [
             {
-                "grado": "2do",
-                "seccion": "B",
+                "grado": "1\u00b0",
+                "seccion": "A",
                 "alumnos": [
                     {
-                        "nombre": "Anahi",
-                        "ap_paterno": "Alvarez",
-                        "ap_materno": "Holguin",
-                        "curp": "AAHA020703MCLLLNA",
-                        "matricula": "21170158"
-                    },
-                    {
-                        "nombre": "Benito",
-                        "ap_paterno": "Rubio",
-                        "ap_materno": "Franco",
-                        "curp": "BRFB050930MCLLLN04",
-                        "matricula": "21170160"
+                        "nombre": "anahi",
+                        "ap_paterno": "alvarez",
+                        "ap_materno": "holguin",
+                        "curp": "AHAVSGAH15615",
+                        "matricula": "1511352"
                     }
                 ]
+            },
+            {
+                "grado": "2",
+                "seccion": "A",
+                "alumnos": []
             }
         ]
     }
